@@ -27,7 +27,7 @@ def deepseek_reply():
     q = request.form.get("q")
     # load model
     
-    completion_ds = client.chat.completions.create(
+    completion = client.chat.completions.create(
         model="deepseek-r1-distill-llama-70b",
         messages=[
         {
