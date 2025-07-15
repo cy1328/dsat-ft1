@@ -4,7 +4,7 @@ from groq import Groq
 
 import os
 os.environ['GROQ_API_KEY'] = os.getenv("groq)")""
-
+client = Groq()
 
 app = Flask(__name__)
 
@@ -26,7 +26,7 @@ def llama():
 def llama_reply():
     q = request.form.get("q")
     # load model
-    client = Groq()
+    
     completion = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=[
