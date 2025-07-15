@@ -1,0 +1,10 @@
+completion_ds = client.chat.completions.create(
+    model="deepseek-r1-distill-llama-70b",
+    messages=[
+        {
+            "role": "user",
+            "content": "Explain why fast inference is critical for reasoning models"
+        }
+    ]
+)
+print(completion_ds.choices[0].message.content)
