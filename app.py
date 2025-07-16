@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import joblib
+import requests
 from groq import Groq
 
 import os
