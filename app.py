@@ -4,7 +4,8 @@ import requests
 from groq import Groq
 
 import os
-os.environ['GROQ_API_KEY'] = os.getenv("groq")
+os.environ['GROQ_API_KEY'] = os.getenv('groq')
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 client = Groq()
 
 app = Flask(__name__)
@@ -70,11 +71,11 @@ def telegram():
     domain_url = 'https://dsat-ft1-cq4n.onrender.com'
 
     # The following line is used to delete the existing webhook URL for the Telegram bot
-    delete_webhook_url = f"https://api.telegram.org/bot{7801924169:AAELDE5f92LQSw58yKHGMPJBVJyKVYtEGUc}/deleteWebhook"
+    delete_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/deleteWebhook"
     requests.post(delete_webhook_url, json={"url": domain_url, "drop_pending_updates": True})
 
     # Set the webhook URL for the Telegram bot
-    set_webhook_url = f"https://api.telegram.org/bot{7801924169:AAELDE5f92LQSw58yKHGMPJBVJyKVYtEGUc}/setWebhook?url={domain_url}/webhook"
+    set_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/setWebhook?url={domain_url}/webhook"
     webhook_response = requests.post(set_webhook_url, json={"url": domain_url, "drop_pending_updates": True})
 
     if webhook_response.status_code == 200:
