@@ -63,6 +63,10 @@ def llama_reply():
 def dbs():
     return(render_template("dbs.html"))
 
+@app.route("/telegram",methods=["GET","POST"])
+def telegram():
+    return(render_template("telegram.html"))
+
 @app.route("/prediction",methods=["GET","POST"])
 def prediction():
     q = float(request.form.get("q"))
