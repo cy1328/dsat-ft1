@@ -119,17 +119,7 @@ def webhook():
         chat_id = update["message"]["chat"]["id"]
         query = update["message"]["text"]
 
-        # Pass the query to the Groq model
-        client = Groq()
-        completion_ds = client.chat.completions.create(
-            model="deepseek-r1-distill-llama-70b",
-            messages=[
-                {
-                    "role": "user",
-                    "content": query
-                }
-            ]
-        )
+
         response_message = completion_ds.choices[0].message.content
 
         # Send the response back to the Telegram chat
