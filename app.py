@@ -91,7 +91,7 @@ def telegram():
 
 
 @app.route("/stop_telegram",methods=["GET","POST"])
-def telegram():
+def stop_telegram():
 
     domain_url = 'https://dsat-ft1-cq4n.onrender.com'
 
